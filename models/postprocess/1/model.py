@@ -65,6 +65,16 @@ class TritonPythonModel:
         ]
         self.anchors = self.make_anchors(self.feats_hw)
 
+    def make_anchors(self, feats_hw, grid_cell_offset=0.5):
+        """Generate anchors from features."""
+        anchor_points = {}
+        for (h, w), stride in zip(feats_hw, self.strides):
+            x = np.arange(0, w) + grid_cell_offset
+            y = np.arange(0, h) + grid_cell_offset
+            sx, sy = np.meshgrid(x, y)
+            anchor_points[stride] = np.stack((sx, sy), axis=-1).reshape(-1, 2)
+        return anchor_points
+
     def process_outputs(self, outputs):
         bboxes, scores = [], []
         for i, pred in enumerate(outputs):
