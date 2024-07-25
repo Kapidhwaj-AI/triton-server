@@ -11,6 +11,16 @@ output [
     {
         name: "output0"
         data_type: TYPE_FP32
-        dims: [-1, -1, -1, -1]
+        dims: [1, 80, 80, 80]
+    },
+    {
+        name: "output1"
+        data_type: TYPE_FP32
+        dims: [1, 40, 80, 80]
+    },
+    {
+        name: "output2"
+        data_type: TYPE_FP32
+        dims: [1, 40, 80, 80]
     }
 ]
