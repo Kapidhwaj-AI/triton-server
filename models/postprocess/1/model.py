@@ -131,6 +131,11 @@ class TritonPythonModel:
             x2 = np.clip(x2, 0, max_shape[1])
             y2 = np.clip(y2, 0, max_shape[0])
         return np.stack([x1, y1, x2, y2], axis=-1)
+    
+    @staticmethod
+    def softmax(x, axis=1):
+        e_x = np.exp(x - np.max(x, axis=axis, keepdims=True))
+        return e_x / np.sum(e_x, axis=axis, keepdims=True)
 
     def execute(self, requests):
         """`execute` MUST be implemented in every Python model. `execute`
