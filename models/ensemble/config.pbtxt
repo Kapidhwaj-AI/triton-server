@@ -44,7 +44,7 @@ ensemble_scheduling {
             },
             output_map {
                 key: "output0"
-                value: "outputs0"
+                value: "output0"
             }
         },
         {
