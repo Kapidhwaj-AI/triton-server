@@ -98,23 +98,21 @@ class TritonPythonModel:
         bboxes = np.concatenate(bboxes, axis=0)
         scores = np.concatenate(scores, axis=0)
 
-        bboxes_wh = bboxes.copy()
-        bboxes_wh[:, 2:4] = bboxes[:, 2:4] - bboxes[:, 0:2]  ####xywh
         classIds = np.argmax(scores, axis=1)
         confidences = np.max(scores, axis=1)  ####max_class_confidence
 
         mask = confidences > self.conf_threshold
-        bboxes_wh = bboxes_wh[mask]  ###合理使用广播法则
+        bboxes = bboxes[mask]  ###合理使用广播法则
         confidences = confidences[mask]
         classIds = classIds[mask]
 
-        indices = cv2.dnn.NMSBoxes(bboxes_wh.tolist(), confidences.tolist(), self.conf_threshold, self.iou_threshold)
+        indices = cv2.dnn.NMSBoxes(bboxes.tolist(), confidences.tolist(), self.conf_threshold, self.iou_threshold)
 
         if isinstance(indices, np.ndarray):
             indices = indices.flatten()
 
         if len(indices) > 0:
-            mlvl_bboxes = bboxes_wh[indices]
+            mlvl_bboxes = bboxes[indices]
             confidences = confidences[indices]
             return mlvl_bboxes, confidences
         else:
