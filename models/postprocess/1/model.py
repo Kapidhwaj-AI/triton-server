@@ -53,8 +53,8 @@ class TritonPythonModel:
 
         self.input_height = 640
         self.input_width = 640
-        self.conf_thres = 0.45
-        self.iou_thres = 0.50
+        self.conf_threshold = 0.45
+        self.iou_threshold = 0.50
         self.reg_max = 16       
 
         self.project = np.arange(self.reg_max)
