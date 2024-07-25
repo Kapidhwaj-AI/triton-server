@@ -7,20 +7,22 @@ input [
         dims: [1, 3, 640, 640]
     }
 ]
+
+17c4238145a32735acd50c4e1d3c0b60677391a8093addfc285925aee3961d24
 output [
+    {
+        name: "397"
+        data_type: TYPE_FP32
+        dims: [1, 80, 20, 20]
+    },
+    {
+        name: "389"
+        data_type: TYPE_FP32
+        dims: [1, 80, 40, 40]
+    },
     {
         name: "output0"
         data_type: TYPE_FP32
         dims: [1, 80, 80, 80]
-    },
-    {
-        name: "output1"
-        data_type: TYPE_FP32
-        dims: [1, 40, 80, 80]
-    },
-    {
-        name: "output2"
-        data_type: TYPE_FP32
-        dims: [1, 40, 80, 80]
     }
 ]
