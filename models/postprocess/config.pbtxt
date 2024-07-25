@@ -5,7 +5,7 @@ input [
         name: "INPUT_0"
         data_type: TYPE_FP32
         dims: [1, 80, 20, 20]
-    }.
+    },
     {
         name: "INPUT_1"
         data_type: TYPE_FP32
