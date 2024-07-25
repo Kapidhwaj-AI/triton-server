@@ -99,10 +99,10 @@ class TritonPythonModel:
         scores = np.concatenate(scores, axis=0)
 
         classIds = np.argmax(scores, axis=1)
-        confidences = np.max(scores, axis=1)  ####max_class_confidence
+        confidences = np.max(scores, axis=1)
 
         mask = confidences > self.conf_threshold
-        bboxes = bboxes[mask]  ###合理使用广播法则
+        bboxes = bboxes[mask]
         confidences = confidences[mask]
         classIds = classIds[mask]
 
