@@ -7,8 +7,6 @@ input [
         dims: [1, 3, 640, 640]
     }
 ]
-
-17c4238145a32735acd50c4e1d3c0b60677391a8093addfc285925aee3961d24
 output [
     {
         name: "397"
