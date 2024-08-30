@@ -3,6 +3,6 @@
 ### How to start
 
 ```console
-docker build -t yolov8-triton .
-docker run -d --gpus all -p 8000:8000 -v ~/yolov8-triton-ensemble/models:/models yolov8-triton
+docker build -t triton .
+docker run -d --gpus all -p8000:8000 -p8001:8001 -p8002:8002 -v ~/triton-server/models:/models triton
 ```
